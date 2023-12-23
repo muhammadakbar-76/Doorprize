@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PrimaryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [PrimaryController::class, 'index']);
+
+Route::get('/undi', [PrimaryController::class, 'undi']);
 
 Route::prefix('/admin')->group(function () {
     Route::get('/mahasiswa', function () {

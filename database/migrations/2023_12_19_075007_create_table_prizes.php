@@ -20,8 +20,9 @@ class CreateTablePrizes extends Migration
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
             $table->string('prize_name');
+            $table->smallInteger('prize_value');
             $table->string('rules_field');
-            $table->string('rules_opeerator');
+            $table->string('rules_operator');
             $table->string('rules_value');
         });
     }
