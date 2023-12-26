@@ -12,13 +12,11 @@ class Winner extends Model
     protected $table = 'winners';
     protected $primaryKey = 'winner_id';
 
-    public function employees()
-    {
-        return $this->hasOne(Employee::class, 'id_employee');
-    }
-
-    public function prizes()
-    {
-        return $this->hasMany(Prize::class, 'id_prize');
-    }
+    protected $fillable = [
+        'employee_name',
+        'employee_nik',
+        'department_name',
+        'lama_kerja',
+        'prize_name'
+    ];
 }

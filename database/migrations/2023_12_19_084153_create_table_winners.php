@@ -19,8 +19,11 @@ class CreateTableWinners extends Migration
             $table->timestamp('updated_at');
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
-            $table->foreignId('id_employee')->references('employee_id')->on('employees');
-            $table->foreignId('id_prize')->references('prize_id')->on('prizes');
+            $table->string('employee_name');
+            $table->string('employee_nik');
+            $table->string('department_name');
+            $table->float('lama_kerja');
+            $table->string('prize_name');
         });
     }
 

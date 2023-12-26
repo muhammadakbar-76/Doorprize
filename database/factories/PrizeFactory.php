@@ -15,10 +15,11 @@ class PrizeFactory extends Factory
     {
         return [
             'prize_name' => $this->faker->word(),
-            'prize_value' => $this->faker->numberBetween(2, 24),
+            'prize_value' => 24,
             'rules_field' => 'lama_kerja',
             'rules_operator' => '=',
-            'rules_value' => $this->faker->numberBetween(0, 5)
+            'rules_value' => 3,
+            'max_count' => 2
         ];
     }
 }

@@ -14,6 +14,6 @@ class Prize extends Model
 
     public function winners()
     {
-        return $this->belongsTo(Winner::class);
+        return $this->hasMany(Winner::class);
     }
 }

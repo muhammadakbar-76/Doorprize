@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PrimaryController::class, 'index']);
 
-Route::get('/undi', [PrimaryController::class, 'undi']);
+Route::post('/undi', [PrimaryController::class, 'undi']);
 
 Route::prefix('/admin')->group(function () {
     Route::get('/mahasiswa', function () {
