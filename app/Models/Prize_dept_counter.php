@@ -11,6 +11,11 @@ class Prize_dept_counter extends Model
 
     protected $table = 'prize_dept_counters';
 
+    protected $fillable = [
+        'id_prize',
+        'id_department'
+    ];
+
     public function departments()
     {
         return $this->belongsTo(Department::class, 'id_department');

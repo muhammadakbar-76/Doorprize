@@ -15,14 +15,14 @@ class CreateTableEmployees extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id('employee_id');
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at');
+            $table->timestamps();
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
             $table->string('employee_name');
             $table->string('employee_nik');
             $table->foreignId('id_department')->references('department_id')->on('departments');
             $table->float('lama_kerja');
+            $table->string('real_dept');
         });
     }
 

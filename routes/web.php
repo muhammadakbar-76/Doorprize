@@ -23,3 +23,7 @@ Route::prefix('/admin')->group(function () {
         return "Ini halaman Mahasiswa";
     });
 });
+
+Route::get('/test', function () {
+    return view('undi', ['title' => 'Selamat 🎁']);
+});

@@ -2,17 +2,18 @@
 
 @section('content')
     <style>
-        .card-footer>img:hover {
+        .pointer {
             cursor: pointer;
         }
     </style>
-    <section style="background-image: url({{ asset('img/background.jpg') }}); height: 100vh;width:100vw">
+    <section
+        style="background-image: url({{ asset('img/background.jpg') }}); background-repeat:no-repeat; background-size: cover; height: 100vh;width:100vw">
         <div class="container">
             <div class="row">
-                <div class="col-sm-6 d-flex" style="height: 100vh;">
-                    <img src="{{ asset('img/logo.png') }}" alt="" style="height: 400px; width: 400px; margin:auto">
+                <div class="col-sm-7 d-flex" style="height: 100vh;">
+                    {{-- <img src="{{ asset('img/logo.png') }}" alt="" style="height: 400px; width: 400px; margin:auto"> --}}
                 </div>
-                <div class="col-sm-6 d-flex">
+                <div class="col-sm-5 d-flex">
                     <div class="card m-auto w-100">
                         <div class="card-header text-center">
                             Win Prizes🎉🎊
@@ -26,21 +27,23 @@
                                     <select name="prize_id" id="basic-usage" class="form-select select2">
                                         @foreach ($prizes as $prize)
                                             <option value="{{ $prize->prize_id }}"
-                                                {{ old('prize_id') == $prize->prize_id ? 'selected' : '' }}>
+                                                {{ app('request')->input('prize_id') == $prize->prize_id ? 'selected' : '' }}>
                                                 {{ $prize->prize_name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group mt-3">
                                     <label for="" class="form-label" style="color: white">Jumlah Hadiah</label>
-                                    <input type="number" name="doorprize_count" value="{{ old('doorprize_count') ?? 1 }}"
-                                        id="" class="form-control">
+                                    <input type="number" name="doorprize_count"
+                                        value="{{ app('request')->input('doorprize_count') ?? 1 }}" id=""
+                                        class="form-control">
                                 </div>
 
                         </div>
                         <div class="card-footer text-center" id="btn_action">
-                            <img src="{{ asset('img/start.png') }}" alt="" style="height: 100px; width:100px;"
-                                onclick="playdrumroll()" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <img src="{{ asset('img/start.png') }}" class="pointer" alt=""
+                                style="height: 100px; width:100px;" onclick="playdrumroll()" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">
                             {{-- <audio src="{{ asset('sound/DRUMROLL.WAV') }}" id="MediaPlayer1" loop="loop"> --}}
                         </div>
                         <audio id="drumroll" hidden loop>
@@ -66,7 +69,7 @@
                 </div>
                 <div class="modal-footer d-flex" id="btn_stop">
                     <img src="{{ asset('img/stop.png') }}" alt="" style="height: 100px; width:100px;"
-                        onclick="submit_form()" class="m-auto">
+                        onclick="submit_form()" class="m-auto pointer">
                 </div>
             </div>
         </div>

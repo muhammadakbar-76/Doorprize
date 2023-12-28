@@ -15,16 +15,16 @@ class CreateTablePrizes extends Migration
     {
         Schema::create('prizes', function (Blueprint $table) {
             $table->id('prize_id');
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at');
+            $table->timestamps();
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
             $table->string('prize_name');
             $table->smallInteger('prize_value');
-            $table->smallInteger('max_count');
+            $table->string('prize_foto')->default('default.png');
             $table->string('rules_field');
             $table->string('rules_operator');
             $table->string('rules_value');
+            $table->smallInteger('max_count');
         });
     }
 

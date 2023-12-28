@@ -19,7 +19,8 @@ class PrizeFactory extends Factory
             'rules_field' => 'lama_kerja',
             'rules_operator' => '=',
             'rules_value' => 3,
-            'max_count' => 2
+            'max_count' => 2,
+            'prize_foto' => 'default.png'
         ];
     }
 }
