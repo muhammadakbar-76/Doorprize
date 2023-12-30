@@ -34,9 +34,14 @@
                                 </div>
                                 <div class="form-group mt-3">
                                     <label for="" class="form-label" style="color: white">Jumlah Hadiah</label>
-                                    <input type="number" name="doorprize_count"
-                                        value="{{ app('request')->input('doorprize_count') ?? 1 }}" id=""
-                                        class="form-control">
+                                    <select name="doorprize_count" id="" class="form-select">
+                                        <option value="1"
+                                            {{ app('request')->input('doorprize_count') == 1 ? 'selected' : '' }}>1</option>
+                                        <option value="2"
+                                            {{ app('request')->input('doorprize_count') == 2 ? 'selected' : '' }}>2</option>
+                                        <option value="4"
+                                            {{ app('request')->input('doorprize_count') == 4 ? 'selected' : '' }}>4</option>
+                                    </select>
                                 </div>
 
                         </div>

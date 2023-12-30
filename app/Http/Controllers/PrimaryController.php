@@ -36,7 +36,7 @@ class PrimaryController extends Controller
                     ->where('id_prize', $prize_id)
                     ->where('counter', '<', $prize->max_count)
                     ->inRandomOrder()
-                    ->limit($doorprize_count)
+                    ->limit($doorprize_count > $prize->prize_value ? $prize->prize_value : $doorprize_count)
                     ->get();
 
                 $list_pemenang = array();
