@@ -50,14 +50,19 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($list_pemenang as $key => $value)
-                                    <tr>
-                                        <td class="text-center">{{ $key + 1 }}</td>
-                                        <td class="text-center">{{ $value->employee_nik }}</td>
-                                        <td class="text-center">{{ $value->employee_name }}</td>
-                                        <td class="text-center">{{ $value->real_dept }}</td>
-                                    </tr>
-                                @endforeach
+                                <form action="{{ url('/save_undi') }}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="prize_id" value="{{ $prize_id }}">
+                                    <input type="hidden" name="doorprize_count" value="{{ $doorprize_count }}">
+                                    @foreach ($list_pemenang as $key => $value)
+                                        <input type="hidden" name="employee_id[]" value="{{ $value->employee_id }}">
+                                        <tr>
+                                            <td class="text-center">{{ $key + 1 }}</td>
+                                            <td class="text-center">{{ $value->employee_nik }}</td>
+                                            <td class="text-center">{{ $value->employee_name }}</td>
+                                            <td class="text-center">{{ $value->real_dept }}</td>
+                                        </tr>
+                                    @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -75,9 +80,12 @@
                 </div>
             </div>
             <div class="col-xs-12 mt-3 text-center kejutan" style="visibility: hidden">
+                <button type="submit" onclick="add_spinner()" id="save_btn" class="btn btn-lg btn-success">Save
+                    Pemenang</button>&nbsp;&nbsp;
+                </form>
                 <a href="{{ url('?prize_id=') . $prize_id . '&doorprize_count=' . $doorprize_count }}"
                     class="btn btn-lg btn-primary">&#8678; Undi
-                    Lagi</a>
+                    Ulang</a>
             </div>
         </div>
         <div class="kejutan" style="position: absolute; top: 30px; right: 30px; visibility: hidden">
@@ -97,5 +105,13 @@
                 visibility: 'visible'
             });
         }, 1000);
+
+        function add_spinner() {
+            $('#save_btn').html(`<div class="spinner-border text-primary" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>`);
+            $('#save_btn').attr('disabled', true);
+            $('form').submit();
+        }
     </script>
 @endsection

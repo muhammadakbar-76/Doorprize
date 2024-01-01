@@ -18,6 +18,8 @@ Route::get('/', [PrimaryController::class, 'index']);
 
 Route::post('/undi', [PrimaryController::class, 'undi']);
 
+Route::post('/save_undi', [PrimaryController::class, 'save_undi']);
+
 Route::prefix('/admin')->group(function () {
     Route::get('/mahasiswa', function () {
         return "Ini halaman Mahasiswa";

@@ -63,24 +63,24 @@ class PrimaryController extends Controller
                     $list_pemenang[] = $pemenang;
 
                     //tambahkan pemenang di table winner
-                    Winner::create([
-                        'employee_name' => $pemenang->employee_name,
-                        'employee_nik' => $pemenang->employee_nik,
-                        'department_name' => $pemenang->departments->department_name,
-                        'lama_kerja' => $pemenang->lama_kerja,
-                        'prize_name' => $prize->prize_name,
-                    ]);
+                    // Winner::create([
+                    //     'employee_name' => $pemenang->employee_name,
+                    //     'employee_nik' => $pemenang->employee_nik,
+                    //     'department_name' => $pemenang->departments->department_name,
+                    //     'lama_kerja' => $pemenang->lama_kerja,
+                    //     'prize_name' => $prize->prize_name,
+                    // ]);
 
-                    //hapus pemenang dari table employee
-                    Employee::find($pemenang->employee_id)->delete();
+                    // //hapus pemenang dari table employee
+                    // Employee::find($pemenang->employee_id)->delete();
 
-                    //counter dept tambah 1
-                    Prize_dept_counter::where('id_department', $dept->id_department)
-                        ->where('id_prize', $prize_id)
-                        ->increment('counter');
+                    // //counter dept tambah 1
+                    // Prize_dept_counter::where('id_department', $dept->id_department)
+                    //     ->where('id_prize', $prize_id)
+                    //     ->increment('counter');
                 }
 
-                $sisa_hadiah = (int)$prize->prize_value - Prize_dept_counter::where('id_prize', $prize_id)->sum('counter');
+                $sisa_hadiah = (int)$prize->prize_value - Prize_dept_counter::where('id_prize', $prize_id)->sum('counter') - count($list_pemenang);
 
                 return view('undi', compact('list_pemenang', 'prize', 'prize_id', 'doorprize_count', 'sisa_hadiah'));
             } else {
@@ -89,5 +89,35 @@ class PrimaryController extends Controller
         } catch (\Throwable $th) {
             return view('reroll', compact('prize_id', 'doorprize_count'));
         }
+    }
+
+    public function save_undi(Request $request)
+    {
+        $prize_id = $request->input('prize_id');
+        $doorprize_count = $request->input('doorprize_count');
+        $prize = Prize::where('prize_id', $prize_id)->first();
+
+        foreach ($request->input('employee_id') as $val) {
+            $employee = Employee::where('employee_id', $val)->first();
+
+            //tambahkan pemenang di table winner
+            Winner::create([
+                'employee_name' => $employee->employee_name,
+                'employee_nik' => $employee->employee_nik,
+                'department_name' => $employee->departments->department_name,
+                'lama_kerja' => $employee->lama_kerja,
+                'prize_name' => $prize->prize_name,
+            ]);
+
+            //hapus pemenang dari table employee
+            Employee::find($employee->employee_id)->delete();
+
+            //counter dept tambah 1
+            Prize_dept_counter::where('id_department', $employee->id_department)
+                ->where('id_prize', $prize_id)
+                ->increment('counter');
+        }
+
+        return redirect("/?prize_id=$prize_id&doorprize_count=$doorprize_count");
     }
 }
