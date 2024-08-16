@@ -30,48 +30,51 @@ class DatabaseSeeder extends Seeder
                 ['department_name' => 'Processing Plant'],
                 ['department_name' => 'Supply Chain Management'],
                 ['department_name' => 'Permit/SP'],
-                ['department_name' => 'Kontraktor'],
-                ['department_name' => 'Mitra Kerja'],
+                ['department_name' => 'Kontraktor/Mitra Kerja'],
             ]
         );
 
         Prize::insert(
             [
                 [
-                    'prize_name' => 'Sepeda Lipat 1',
-                    'prize_value' => 1,
-                    'prize_foto' => 'sepeda_1.png',
+                    'prize_name' => 'TV',
+                    'prize_value' => 12,
+                    'prize_foto' => 'tv.png',
                     'rules_field' => 'lama_kerja',
                     'rules_operator' => '>=',
                     'rules_value' => 7,
-                    'max_count' => 1,
                 ],
                 [
-                    'prize_name' => 'Sepeda Lipat 2',
-                    'prize_value' => 1,
-                    'prize_foto' => 'sepeda_2.png',
-                    'rules_field' => 'lama_kerja',
-                    'rules_operator' => '>=',
-                    'rules_value' => 7,
-                    'max_count' => 1,
-                ],
-                [
-                    'prize_name' => 'Smartphone',
+                    'prize_name' => 'Mesin Cuci',
                     'prize_value' => 12,
-                    'prize_foto' => 'hp.png',
+                    'prize_foto' => 'mesin_cuci.png',
                     'rules_field' => 'lama_kerja',
                     'rules_operator' => '>=',
                     'rules_value' => 5,
-                    'max_count' => 1,
                 ],
                 [
-                    'prize_name' => 'Logam Mulia 0.5gr',
+                    'prize_name' => 'Airfryer',
                     'prize_value' => 12,
-                    'prize_foto' => 'gold.png',
+                    'prize_foto' => 'airfryer.png',
                     'rules_field' => 'lama_kerja',
                     'rules_operator' => '>=',
-                    'rules_value' => 5,
-                    'max_count' => 1,
+                    'rules_value' => 3,
+                ],
+                [
+                    'prize_name' => 'Backpack',
+                    'prize_value' => 24,
+                    'prize_foto' => 'daypack.png',
+                    'rules_field' => 'lama_kerja',
+                    'rules_operator' => '>=',
+                    'rules_value' => 0,
+                ],
+                [
+                    'prize_name' => 'Jas Hujan',
+                    'prize_value' => 24,
+                    'prize_foto' => 'jas_hujan.png',
+                    'rules_field' => 'lama_kerja',
+                    'rules_operator' => '>=',
+                    'rules_value' => 0,
                 ],
                 [
                     'prize_name' => 'Tumbler',
@@ -80,620 +83,728 @@ class DatabaseSeeder extends Seeder
                     'rules_field' => 'lama_kerja',
                     'rules_operator' => '>=',
                     'rules_value' => 0,
-                    'max_count' => 2,
                 ],
                 [
-                    'prize_name' => 'Hand Juicer',
-                    'prize_value' => 24,
-                    'prize_foto' => 'juicer.png',
-                    'rules_field' => 'lama_kerja',
-                    'rules_operator' => '>=',
-                    'rules_value' => 0,
-                    'max_count' => 2,
-                ],
-                [
-                    'prize_name' => 'Panci Listrik',
-                    'prize_value' => 24,
-                    'prize_foto' => 'panci.png',
-                    'rules_field' => 'lama_kerja',
-                    'rules_operator' => '>=',
-                    'rules_value' => 0,
-                    'max_count' => 2,
-                ],
-                [
-                    'prize_name' => 'Kiip Wireless Bluetooth',
+                    'prize_name' => 'Headset BT',
                     'prize_value' => 24,
                     'prize_foto' => 'kiip.png',
                     'rules_field' => 'lama_kerja',
                     'rules_operator' => '>=',
                     'rules_value' => 0,
-                    'max_count' => 2,
                 ],
                 [
-                    'prize_name' => 'Daypack',
+                    'prize_name' => 'Juicer',
                     'prize_value' => 24,
-                    'prize_foto' => 'daypack.png',
+                    'prize_foto' => 'juicer.png',
                     'rules_field' => 'lama_kerja',
                     'rules_operator' => '>=',
                     'rules_value' => 0,
-                    'max_count' => 2,
                 ],
                 [
-                    'prize_name' => 'Travel Towel',
+                    'prize_name' => 'Coffee Mug',
                     'prize_value' => 24,
-                    'prize_foto' => 'towel.png',
+                    'prize_foto' => 'coffee_mug.png',
                     'rules_field' => 'lama_kerja',
                     'rules_operator' => '>=',
                     'rules_value' => 0,
-                    'max_count' => 2,
                 ],
                 [
-                    'prize_name' => 'Lunch Box',
+                    'prize_name' => 'Waist Bag',
                     'prize_value' => 24,
-                    'prize_foto' => 'lunch.png',
+                    'prize_foto' => 'waistbag.png',
                     'rules_field' => 'lama_kerja',
                     'rules_operator' => '>=',
                     'rules_value' => 0,
-                    'max_count' => 2,
                 ],
                 [
-                    'prize_name' => 'Termos Kopi',
+                    'prize_name' => 'Tas NH10',
                     'prize_value' => 24,
-                    'prize_foto' => 'termos.png',
+                    'prize_foto' => 'tas_nh10.png',
                     'rules_field' => 'lama_kerja',
                     'rules_operator' => '>=',
                     'rules_value' => 0,
-                    'max_count' => 2,
-                ],
-                [
-                    'prize_name' => 'Tas Quechua',
-                    'prize_value' => 24,
-                    'prize_foto' => 'tas.png',
-                    'rules_field' => 'lama_kerja',
-                    'rules_operator' => '>=',
-                    'rules_value' => 0,
-                    'max_count' => 12,
                 ],
             ]
         );
 
-        Prize_dept_counter::insert([
-            [
-                'id_prize' => 1,
-                'id_department' => 1,
-            ],
-            [
-                'id_prize' => 1,
-                'id_department' => 8,
-            ],
-            [
-                'id_prize' => 1,
-                'id_department' => 9,
-            ],
-            [
-                'id_prize' => 1,
-                'id_department' => 10,
-            ],
-            [
-                'id_prize' => 2,
-                'id_department' => 5,
-            ],
-            [
-                'id_prize' => 2,
-                'id_department' => 6,
-            ],
-            [
-                'id_prize' => 2,
-                'id_department' => 7,
-            ],
-            [
-                'id_prize' => 2,
-                'id_department' => 8,
-            ],
-            [
-                'id_prize' => 2,
-                'id_department' => 9,
-            ],
-            [
-                'id_prize' => 2,
-                'id_department' => 10,
-            ],
-            [
-                'id_prize' => 2,
-                'id_department' => 11,
-            ],
-            [
-                'id_prize' => 2,
-                'id_department' => 12,
-            ],
-            [
-                'id_prize' => 3,
-                'id_department' => 1,
-            ],
-            [
-                'id_prize' => 3,
-                'id_department' => 2,
-            ],
-            [
-                'id_prize' => 3,
-                'id_department' => 3,
-            ],
-            [
-                'id_prize' => 3,
-                'id_department' => 4,
-            ],
-            [
-                'id_prize' => 3,
-                'id_department' => 5,
-            ],
-            [
-                'id_prize' => 3,
-                'id_department' => 6,
-            ],
-            [
-                'id_prize' => 3,
-                'id_department' => 7,
-            ],
-            [
-                'id_prize' => 3,
-                'id_department' => 8,
-            ],
-            [
-                'id_prize' => 3,
-                'id_department' => 9,
-            ],
-            [
-                'id_prize' => 3,
-                'id_department' => 10,
-            ],
-            [
-                'id_prize' => 3,
-                'id_department' => 11,
-            ],
-            [
-                'id_prize' => 3,
-                'id_department' => 12,
-            ],
-            [
-                'id_prize' => 4,
-                'id_department' => 1,
-            ],
-            [
-                'id_prize' => 4,
-                'id_department' => 2,
-            ],
-            [
-                'id_prize' => 4,
-                'id_department' => 3,
-            ],
-            [
-                'id_prize' => 4,
-                'id_department' => 4,
-            ],
-            [
-                'id_prize' => 4,
-                'id_department' => 5,
-            ],
-            [
-                'id_prize' => 4,
-                'id_department' => 6,
-            ],
-            [
-                'id_prize' => 4,
-                'id_department' => 7,
-            ],
-            [
-                'id_prize' => 4,
-                'id_department' => 8,
-            ],
-            [
-                'id_prize' => 4,
-                'id_department' => 9,
-            ],
-            [
-                'id_prize' => 4,
-                'id_department' => 10,
-            ],
-            [
-                'id_prize' => 4,
-                'id_department' => 11,
-            ],
-            [
-                'id_prize' => 4,
-                'id_department' => 12,
-            ],
-            [
-                'id_prize' => 5,
-                'id_department' => 1,
-            ],
-            [
-                'id_prize' => 5,
-                'id_department' => 2,
-            ],
-            [
-                'id_prize' => 5,
-                'id_department' => 3,
-            ],
-            [
-                'id_prize' => 5,
-                'id_department' => 4,
-            ],
-            [
-                'id_prize' => 5,
-                'id_department' => 5,
-            ],
-            [
-                'id_prize' => 5,
-                'id_department' => 6,
-            ],
-            [
-                'id_prize' => 5,
-                'id_department' => 7,
-            ],
-            [
-                'id_prize' => 5,
-                'id_department' => 8,
-            ],
-            [
-                'id_prize' => 5,
-                'id_department' => 9,
-            ],
-            [
-                'id_prize' => 5,
-                'id_department' => 10,
-            ],
-            [
-                'id_prize' => 5,
-                'id_department' => 11,
-            ],
-            [
-                'id_prize' => 5,
-                'id_department' => 12,
-            ],
-            [
-                'id_prize' => 6,
-                'id_department' => 1,
-            ],
-            [
-                'id_prize' => 6,
-                'id_department' => 2,
-            ],
-            [
-                'id_prize' => 6,
-                'id_department' => 3,
-            ],
-            [
-                'id_prize' => 6,
-                'id_department' => 4,
-            ],
-            [
-                'id_prize' => 6,
-                'id_department' => 5,
-            ],
-            [
-                'id_prize' => 6,
-                'id_department' => 6,
-            ],
-            [
-                'id_prize' => 6,
-                'id_department' => 7,
-            ],
-            [
-                'id_prize' => 6,
-                'id_department' => 8,
-            ],
-            [
-                'id_prize' => 6,
-                'id_department' => 9,
-            ],
-            [
-                'id_prize' => 6,
-                'id_department' => 10,
-            ],
-            [
-                'id_prize' => 6,
-                'id_department' => 11,
-            ],
-            [
-                'id_prize' => 6,
-                'id_department' => 12,
-            ],
-            [
-                'id_prize' => 7,
-                'id_department' => 1,
-            ],
-            [
-                'id_prize' => 7,
-                'id_department' => 2,
-            ],
-            [
-                'id_prize' => 7,
-                'id_department' => 3,
-            ],
-            [
-                'id_prize' => 7,
-                'id_department' => 4,
-            ],
-            [
-                'id_prize' => 7,
-                'id_department' => 5,
-            ],
-            [
-                'id_prize' => 7,
-                'id_department' => 6,
-            ],
-            [
-                'id_prize' => 7,
-                'id_department' => 7,
-            ],
-            [
-                'id_prize' => 7,
-                'id_department' => 8,
-            ],
-            [
-                'id_prize' => 7,
-                'id_department' => 9,
-            ],
-            [
-                'id_prize' => 7,
-                'id_department' => 10,
-            ],
-            [
-                'id_prize' => 7,
-                'id_department' => 11,
-            ],
-            [
-                'id_prize' => 7,
-                'id_department' => 12,
-            ],
-            [
-                'id_prize' => 8,
-                'id_department' => 1,
-            ],
-            [
-                'id_prize' => 8,
-                'id_department' => 2,
-            ],
-            [
-                'id_prize' => 8,
-                'id_department' => 3,
-            ],
-            [
-                'id_prize' => 8,
-                'id_department' => 4,
-            ],
-            [
-                'id_prize' => 8,
-                'id_department' => 5,
-            ],
-            [
-                'id_prize' => 8,
-                'id_department' => 6,
-            ],
-            [
-                'id_prize' => 8,
-                'id_department' => 7,
-            ],
-            [
-                'id_prize' => 8,
-                'id_department' => 8,
-            ],
-            [
-                'id_prize' => 8,
-                'id_department' => 9,
-            ],
-            [
-                'id_prize' => 8,
-                'id_department' => 10,
-            ],
-            [
-                'id_prize' => 8,
-                'id_department' => 11,
-            ],
-            [
-                'id_prize' => 8,
-                'id_department' => 12,
-            ],
-            [
-                'id_prize' => 9,
-                'id_department' => 1,
-            ],
-            [
-                'id_prize' => 9,
-                'id_department' => 2,
-            ],
-            [
-                'id_prize' => 9,
-                'id_department' => 3,
-            ],
-            [
-                'id_prize' => 9,
-                'id_department' => 4,
-            ],
-            [
-                'id_prize' => 9,
-                'id_department' => 5,
-            ],
-            [
-                'id_prize' => 9,
-                'id_department' => 6,
-            ],
-            [
-                'id_prize' => 9,
-                'id_department' => 7,
-            ],
-            [
-                'id_prize' => 9,
-                'id_department' => 8,
-            ],
-            [
-                'id_prize' => 9,
-                'id_department' => 9,
-            ],
-            [
-                'id_prize' => 9,
-                'id_department' => 10,
-            ],
-            [
-                'id_prize' => 9,
-                'id_department' => 11,
-            ],
-            [
-                'id_prize' => 9,
-                'id_department' => 12,
-            ],
-            [
-                'id_prize' => 10,
-                'id_department' => 1,
-            ],
-            [
-                'id_prize' => 10,
-                'id_department' => 2,
-            ],
-            [
-                'id_prize' => 10,
-                'id_department' => 3,
-            ],
-            [
-                'id_prize' => 10,
-                'id_department' => 4,
-            ],
-            [
-                'id_prize' => 10,
-                'id_department' => 5,
-            ],
-            [
-                'id_prize' => 10,
-                'id_department' => 6,
-            ],
-            [
-                'id_prize' => 10,
-                'id_department' => 7,
-            ],
-            [
-                'id_prize' => 10,
-                'id_department' => 8,
-            ],
-            [
-                'id_prize' => 10,
-                'id_department' => 9,
-            ],
-            [
-                'id_prize' => 10,
-                'id_department' => 10,
-            ],
-            [
-                'id_prize' => 10,
-                'id_department' => 11,
-            ],
-            [
-                'id_prize' => 10,
-                'id_department' => 12,
-            ],
-            [
-                'id_prize' => 11,
-                'id_department' => 1,
-            ],
-            [
-                'id_prize' => 11,
-                'id_department' => 2,
-            ],
-            [
-                'id_prize' => 11,
-                'id_department' => 3,
-            ],
-            [
-                'id_prize' => 11,
-                'id_department' => 4,
-            ],
-            [
-                'id_prize' => 11,
-                'id_department' => 5,
-            ],
-            [
-                'id_prize' => 11,
-                'id_department' => 6,
-            ],
-            [
-                'id_prize' => 11,
-                'id_department' => 7,
-            ],
-            [
-                'id_prize' => 11,
-                'id_department' => 8,
-            ],
-            [
-                'id_prize' => 11,
-                'id_department' => 9,
-            ],
-            [
-                'id_prize' => 11,
-                'id_department' => 10,
-            ],
-            [
-                'id_prize' => 11,
-                'id_department' => 11,
-            ],
-            [
-                'id_prize' => 11,
-                'id_department' => 12,
-            ],
-            [
-                'id_prize' => 12,
-                'id_department' => 1,
-            ],
-            [
-                'id_prize' => 12,
-                'id_department' => 2,
-            ],
-            [
-                'id_prize' => 12,
-                'id_department' => 3,
-            ],
-            [
-                'id_prize' => 12,
-                'id_department' => 4,
-            ],
-            [
-                'id_prize' => 12,
-                'id_department' => 5,
-            ],
-            [
-                'id_prize' => 12,
-                'id_department' => 6,
-            ],
-            [
-                'id_prize' => 12,
-                'id_department' => 7,
-            ],
-            [
-                'id_prize' => 12,
-                'id_department' => 8,
-            ],
-            [
-                'id_prize' => 12,
-                'id_department' => 9,
-            ],
-            [
-                'id_prize' => 12,
-                'id_department' => 10,
-            ],
-            [
-                'id_prize' => 12,
-                'id_department' => 11,
-            ],
-            [
-                'id_prize' => 12,
-                'id_department' => 12,
-            ],
-            [
-                'id_prize' => 13,
-                'id_department' => 13,
-            ],
-            [
-                'id_prize' => 13,
-                'id_department' => 14,
-            ],
-        ]);
+        Prize_dept_counter::insert(
+            [
+                [
+                    'id_prize' => 1,
+                    'id_department' => 1,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 2,
+                    'id_department' => 1,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 3,
+                    'id_department' => 1,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 4,
+                    'id_department' => 1,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 5,
+                    'id_department' => 1,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 6,
+                    'id_department' => 1,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 7,
+                    'id_department' => 1,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 8,
+                    'id_department' => 1,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 9,
+                    'id_department' => 1,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 10,
+                    'id_department' => 1,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 11,
+                    'id_department' => 1,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 1,
+                    'id_department' => 2,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 2,
+                    'id_department' => 2,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 3,
+                    'id_department' => 2,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 4,
+                    'id_department' => 2,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 5,
+                    'id_department' => 2,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 6,
+                    'id_department' => 2,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 7,
+                    'id_department' => 2,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 8,
+                    'id_department' => 2,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 9,
+                    'id_department' => 2,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 10,
+                    'id_department' => 2,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 11,
+                    'id_department' => 2,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 1,
+                    'id_department' => 3,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 2,
+                    'id_department' => 3,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 3,
+                    'id_department' => 3,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 4,
+                    'id_department' => 3,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 5,
+                    'id_department' => 3,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 6,
+                    'id_department' => 3,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 7,
+                    'id_department' => 3,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 8,
+                    'id_department' => 3,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 9,
+                    'id_department' => 3,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 10,
+                    'id_department' => 3,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 11,
+                    'id_department' => 3,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 1,
+                    'id_department' => 4,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 2,
+                    'id_department' => 4,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 3,
+                    'id_department' => 4,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 4,
+                    'id_department' => 4,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 5,
+                    'id_department' => 4,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 6,
+                    'id_department' => 4,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 7,
+                    'id_department' => 4,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 8,
+                    'id_department' => 4,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 9,
+                    'id_department' => 4,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 10,
+                    'id_department' => 4,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 11,
+                    'id_department' => 4,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 1,
+                    'id_department' => 5,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 2,
+                    'id_department' => 5,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 3,
+                    'id_department' => 5,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 4,
+                    'id_department' => 5,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 5,
+                    'id_department' => 5,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 6,
+                    'id_department' => 5,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 7,
+                    'id_department' => 5,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 8,
+                    'id_department' => 5,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 9,
+                    'id_department' => 5,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 10,
+                    'id_department' => 5,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 11,
+                    'id_department' => 5,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 1,
+                    'id_department' => 6,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 2,
+                    'id_department' => 6,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 3,
+                    'id_department' => 6,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 4,
+                    'id_department' => 6,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 5,
+                    'id_department' => 6,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 6,
+                    'id_department' => 6,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 7,
+                    'id_department' => 6,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 8,
+                    'id_department' => 6,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 9,
+                    'id_department' => 6,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 10,
+                    'id_department' => 6,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 11,
+                    'id_department' => 6,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 1,
+                    'id_department' => 7,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 2,
+                    'id_department' => 7,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 3,
+                    'id_department' => 7,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 4,
+                    'id_department' => 7,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 5,
+                    'id_department' => 7,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 6,
+                    'id_department' => 7,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 7,
+                    'id_department' => 7,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 8,
+                    'id_department' => 7,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 9,
+                    'id_department' => 7,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 10,
+                    'id_department' => 7,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 11,
+                    'id_department' => 7,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 1,
+                    'id_department' => 8,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 2,
+                    'id_department' => 8,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 3,
+                    'id_department' => 8,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 4,
+                    'id_department' => 8,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 5,
+                    'id_department' => 8,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 6,
+                    'id_department' => 8,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 7,
+                    'id_department' => 8,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 8,
+                    'id_department' => 8,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 9,
+                    'id_department' => 8,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 10,
+                    'id_department' => 8,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 11,
+                    'id_department' => 8,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 1,
+                    'id_department' => 9,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 2,
+                    'id_department' => 9,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 3,
+                    'id_department' => 9,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 4,
+                    'id_department' => 9,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 5,
+                    'id_department' => 9,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 6,
+                    'id_department' => 9,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 7,
+                    'id_department' => 9,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 8,
+                    'id_department' => 9,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 9,
+                    'id_department' => 9,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 10,
+                    'id_department' => 9,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 11,
+                    'id_department' => 9,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 1,
+                    'id_department' => 10,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 2,
+                    'id_department' => 10,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 3,
+                    'id_department' => 10,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 4,
+                    'id_department' => 10,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 5,
+                    'id_department' => 10,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 6,
+                    'id_department' => 10,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 7,
+                    'id_department' => 10,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 8,
+                    'id_department' => 10,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 9,
+                    'id_department' => 10,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 10,
+                    'id_department' => 10,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 11,
+                    'id_department' => 10,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 1,
+                    'id_department' => 11,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 2,
+                    'id_department' => 11,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 3,
+                    'id_department' => 11,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 4,
+                    'id_department' => 11,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 5,
+                    'id_department' => 11,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 6,
+                    'id_department' => 11,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 7,
+                    'id_department' => 11,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 8,
+                    'id_department' => 11,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 9,
+                    'id_department' => 11,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 10,
+                    'id_department' => 11,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 11,
+                    'id_department' => 11,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 1,
+                    'id_department' => 12,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 2,
+                    'id_department' => 12,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 3,
+                    'id_department' => 12,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 4,
+                    'id_department' => 12,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 5,
+                    'id_department' => 12,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 6,
+                    'id_department' => 12,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 7,
+                    'id_department' => 12,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 8,
+                    'id_department' => 12,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 9,
+                    'id_department' => 12,
+                    'max_count' => 2
+                ],
+                [
+                    'id_prize' => 10,
+                    'id_department' => 12,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 11,
+                    'id_department' => 12,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 9,
+                    'id_department' => 13,
+                    'max_count' => 8
+                ],
+                [
+                    'id_prize' => 10,
+                    'id_department' => 13,
+                    'max_count' => 8
+                ],
+                [
+                    'id_prize' => 11,
+                    'id_department' => 13,
+                    'max_count' => 8
+                ],
+            ]
+        );
     }
 }

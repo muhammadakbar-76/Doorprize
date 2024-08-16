@@ -24,7 +24,6 @@ class CreateTablePrizes extends Migration
             $table->string('rules_field');
             $table->string('rules_operator');
             $table->string('rules_value');
-            $table->smallInteger('max_count');
         });
     }
 
