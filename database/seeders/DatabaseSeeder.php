@@ -18,19 +18,22 @@ class DatabaseSeeder extends Seeder
     {
         Department::insert(
             [
-                ['department_name' => 'Administration'],
-                ['department_name' => 'CSR/IMA'],
-                ['department_name' => 'Drilling'],
-                ['department_name' => 'Exploration'],
-                ['department_name' => 'HSE'],
-                ['department_name' => 'Laboratory'],
-                ['department_name' => 'Maintenance Mobile Plant'],
-                ['department_name' => 'Mine Geo Services'],
-                ['department_name' => 'Mining'],
-                ['department_name' => 'Processing Plant'],
-                ['department_name' => 'Supply Chain Management'],
-                ['department_name' => 'Permit/SP'],
-                ['department_name' => 'Kontraktor/Mitra Kerja'],
+                ['department_name' => 'Administration'], #1
+                ['department_name' => 'CSR/IMA'], #2
+                ['department_name' => 'Drilling'], #3
+                ['department_name' => 'Exploration'], #4
+                ['department_name' => 'HSE'], #5
+                ['department_name' => 'Laboratory'], #6
+                ['department_name' => 'Maintenance Mobile Plant'], #7
+                ['department_name' => 'Mine Geo Services'], #8
+                ['department_name' => 'Mining'], #9
+                ['department_name' => 'Processing Plant'], #10
+                ['department_name' => 'Supply Chain Management'], #11
+                ['department_name' => 'Special Projects'], #12
+                ['department_name' => 'Kontraktor/Mitra Kerja'], #13
+                ['department_name' => 'Local Government'], #14
+                ['department_name' => 'Corporate Social Responsibility'], #15
+                ['department_name' => 'CSR/SP'], #16
             ]
         );
 
@@ -185,21 +188,6 @@ class DatabaseSeeder extends Seeder
                     'max_count' => 2
                 ],
                 [
-                    'id_prize' => 1,
-                    'id_department' => 2,
-                    'max_count' => 1
-                ],
-                [
-                    'id_prize' => 2,
-                    'id_department' => 2,
-                    'max_count' => 1
-                ],
-                [
-                    'id_prize' => 3,
-                    'id_department' => 2,
-                    'max_count' => 1
-                ],
-                [
                     'id_prize' => 4,
                     'id_department' => 2,
                     'max_count' => 2
@@ -732,11 +720,6 @@ class DatabaseSeeder extends Seeder
                 [
                     'id_prize' => 11,
                     'id_department' => 11,
-                    'max_count' => 1
-                ],
-                [
-                    'id_prize' => 1,
-                    'id_department' => 12,
                     'max_count' => 1
                 ],
                 [
@@ -776,11 +759,6 @@ class DatabaseSeeder extends Seeder
                 ],
                 [
                     'id_prize' => 9,
-                    'id_department' => 12,
-                    'max_count' => 2
-                ],
-                [
-                    'id_prize' => 10,
                     'id_department' => 12,
                     'max_count' => 1
                 ],
@@ -803,6 +781,36 @@ class DatabaseSeeder extends Seeder
                     'id_prize' => 11,
                     'id_department' => 13,
                     'max_count' => 8
+                ],
+                [
+                    'id_prize' => 1,
+                    'id_department' => 14,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 9,
+                    'id_department' => 14,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 10,
+                    'id_department' => 14,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 2,
+                    'id_department' => 15,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 3,
+                    'id_department' => 15,
+                    'max_count' => 1
+                ],
+                [
+                    'id_prize' => 1,
+                    'id_department' => 16,
+                    'max_count' => 1
                 ],
             ]
         );

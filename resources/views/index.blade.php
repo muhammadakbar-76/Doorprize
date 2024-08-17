@@ -7,14 +7,14 @@
         }
     </style>
     <section
-        style="background-image: url({{ asset('img/background.jpg') }}); background-repeat:no-repeat; background-size: cover; height: 100vh;width:100vw">
+        style="background-image: url({{ asset('img/background.jpg') }}); background-size: cover; background-position: center; background-repeat: no-repeat;">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-7 d-flex" style="height: 100vh;">
-                    {{-- <img src="{{ asset('img/logo.png') }}" alt="" style="height: 400px; width: 400px; margin:auto"> --}}
-                </div>
-                <div class="col-sm-5 d-flex">
-                    <div class="card m-auto w-100">
+            <div class="row d-flex" style="height: 100vh">
+                {{-- <div class="col-sm-7 d-flex" style="height: 100vh;">
+                    <img src="{{ asset('img/logo.png') }}" alt="" style="height: 400px; width: 400px; margin:auto">
+                </div> --}}
+                <div class="col-sm-5 m-auto">
+                    <div class="card">
                         <div class="card-header text-center">
                             Win Prizes🎉🎊
                         </div>

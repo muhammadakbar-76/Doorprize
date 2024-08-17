@@ -22,74 +22,74 @@ class PrimaryController extends Controller
     {
         $prize_id = $request->input('prize_id');
         $doorprize_count = $request->input('doorprize_count');
-        // try {
-        //code...
+        try {
+            //code...
 
-        //! you should make table view of prize and department relationship for counting how much prize per dept can get
+            //! you should make table view of prize and department relationship for counting how much prize per dept can get
 
-        // cek jumlah hadiah yang sudah di roll
-        $prize = Prize::where('prize_id', $prize_id)->first();
-        $sum_prize = Prize_dept_counter::where('id_prize', $prize_id)->sum('counter');
+            // cek jumlah hadiah yang sudah di roll
+            $prize = Prize::where('prize_id', $prize_id)->first();
+            $sum_prize = Prize_dept_counter::where('id_prize', $prize_id)->sum('counter');
 
-        if ($sum_prize < $prize->prize_value) {
-            //get department yang counternya kurang dari max_count prize secara acak berdasar jumlah yang diundi
-            $dept_acak = Prize_dept_counter::select('id_department')
-                ->where('id_prize', $prize_id)
-                ->whereRaw('counter < max_count')
-                ->inRandomOrder()
-                ->limit($doorprize_count > $prize->prize_value ? $prize->prize_value : $doorprize_count)
-                ->get();
+            if ($sum_prize < $prize->prize_value) {
+                //get department yang counternya kurang dari max_count prize secara acak berdasar jumlah yang diundi
+                $dept_acak = Prize_dept_counter::select('id_department')
+                    ->where('id_prize', $prize_id)
+                    ->whereRaw('counter < max_count')
+                    ->inRandomOrder()
+                    ->limit($doorprize_count > $prize->prize_value ? $prize->prize_value : $doorprize_count)
+                    ->get();
 
-            $list_pemenang = array();
+                $list_pemenang = array();
 
-            foreach ($dept_acak as $dept) {
-                //get pemenang
-                if ($prize->rules_operator == '=') {
-                    $pemenang = Employee::with('departments')
-                        ->where('id_department', $dept->id_department)
-                        ->where($prize->rules_field, '>=', (int)$prize->rules_value)
-                        ->where($prize->rules_field, '<=', (int)$prize->rules_value + 0.99)
-                        ->inRandomOrder()
-                        ->limit(1)
-                        ->first();
-                } else {
-                    $pemenang = Employee::with('departments')
-                        ->where('id_department', $dept->id_department)
-                        ->where($prize->rules_field, $prize->rules_operator, $prize->rules_value)
-                        ->inRandomOrder()
-                        ->limit(1)
-                        ->first();
+                foreach ($dept_acak as $dept) {
+                    //get pemenang
+                    if ($prize->rules_operator == '=') {
+                        $pemenang = Employee::with('departments')
+                            ->where('id_department', $dept->id_department)
+                            ->where($prize->rules_field, '>=', (int)$prize->rules_value)
+                            ->where($prize->rules_field, '<=', (int)$prize->rules_value + 0.99)
+                            ->inRandomOrder()
+                            ->limit(1)
+                            ->first();
+                    } else {
+                        $pemenang = Employee::with('departments')
+                            ->where('id_department', $dept->id_department)
+                            ->where($prize->rules_field, $prize->rules_operator, $prize->rules_value)
+                            ->inRandomOrder()
+                            ->limit(1)
+                            ->first();
+                    }
+
+                    $list_pemenang[] = $pemenang;
+
+                    //tambahkan pemenang di table winner
+                    // Winner::create([
+                    //     'employee_name' => $pemenang->employee_name,
+                    //     'employee_nik' => $pemenang->employee_nik,
+                    //     'department_name' => $pemenang->departments->department_name,
+                    //     'lama_kerja' => $pemenang->lama_kerja,
+                    //     'prize_name' => $prize->prize_name,
+                    // ]);
+
+                    // //hapus pemenang dari table employee
+                    // Employee::find($pemenang->employee_id)->delete();
+
+                    // //counter dept tambah 1
+                    // Prize_dept_counter::where('id_department', $dept->id_department)
+                    //     ->where('id_prize', $prize_id)
+                    //     ->increment('counter');
                 }
 
-                $list_pemenang[] = $pemenang;
+                $sisa_hadiah = (int)$prize->prize_value - Prize_dept_counter::where('id_prize', $prize_id)->sum('counter') - count($list_pemenang);
 
-                //tambahkan pemenang di table winner
-                // Winner::create([
-                //     'employee_name' => $pemenang->employee_name,
-                //     'employee_nik' => $pemenang->employee_nik,
-                //     'department_name' => $pemenang->departments->department_name,
-                //     'lama_kerja' => $pemenang->lama_kerja,
-                //     'prize_name' => $prize->prize_name,
-                // ]);
-
-                // //hapus pemenang dari table employee
-                // Employee::find($pemenang->employee_id)->delete();
-
-                // //counter dept tambah 1
-                // Prize_dept_counter::where('id_department', $dept->id_department)
-                //     ->where('id_prize', $prize_id)
-                //     ->increment('counter');
+                return view('undi', compact('list_pemenang', 'prize', 'prize_id', 'doorprize_count', 'sisa_hadiah'));
+            } else {
+                return view('habis');
             }
-
-            $sisa_hadiah = (int)$prize->prize_value - Prize_dept_counter::where('id_prize', $prize_id)->sum('counter') - count($list_pemenang);
-
-            return view('undi', compact('list_pemenang', 'prize', 'prize_id', 'doorprize_count', 'sisa_hadiah'));
-        } else {
-            return view('habis');
+        } catch (\Throwable $th) {
+            return view('reroll', compact('prize_id', 'doorprize_count'));
         }
-        // } catch (\Throwable $th) {
-        //     return view('reroll', compact('prize_id', 'doorprize_count'));
-        // }
     }
 
     public function save_undi(Request $request)
@@ -105,13 +105,19 @@ class PrimaryController extends Controller
             Winner::create([
                 'employee_name' => $employee->employee_name,
                 'employee_nik' => $employee->employee_nik,
-                'department_name' => $employee->departments->department_name,
+                'department_name' => $employee->real_dept,
                 'lama_kerja' => $employee->lama_kerja,
                 'prize_name' => $prize->prize_name,
             ]);
 
+            //tambahkan dept 15&16, jika employee dept 2/12/15/16 kepilih, hapusnya berdasar nik
+            //? kenapa gak pakai nik aja semua? karena kontraktor/mitra ada yang nik nya sama semua
             //hapus pemenang dari table employee
-            Employee::find($employee->employee_id)->delete();
+            if ($employee->id_department == 15 || $employee->id_department == 16 || $employee->id_department == 2 || $employee->id_department == 12) {
+                Employee::where('employee_nik', $employee->employee_nik)->delete();
+            } else {
+                Employee::find($employee->employee_id)->delete();
+            }
 
             //counter dept tambah 1
             Prize_dept_counter::where('id_department', $employee->id_department)
