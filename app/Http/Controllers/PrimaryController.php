@@ -62,23 +62,6 @@ class PrimaryController extends Controller
                     }
 
                     $list_pemenang[] = $pemenang;
-
-                    //tambahkan pemenang di table winner
-                    // Winner::create([
-                    //     'employee_name' => $pemenang->employee_name,
-                    //     'employee_nik' => $pemenang->employee_nik,
-                    //     'department_name' => $pemenang->departments->department_name,
-                    //     'lama_kerja' => $pemenang->lama_kerja,
-                    //     'prize_name' => $prize->prize_name,
-                    // ]);
-
-                    // //hapus pemenang dari table employee
-                    // Employee::find($pemenang->employee_id)->delete();
-
-                    // //counter dept tambah 1
-                    // Prize_dept_counter::where('id_department', $dept->id_department)
-                    //     ->where('id_prize', $prize_id)
-                    //     ->increment('counter');
                 }
 
                 $sisa_hadiah = (int)$prize->prize_value - Prize_dept_counter::where('id_prize', $prize_id)->sum('counter') - count($list_pemenang);
