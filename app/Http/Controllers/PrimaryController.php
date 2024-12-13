@@ -23,22 +23,46 @@ class PrimaryController extends Controller
         $prize_id = $request->input('prize_id');
         $doorprize_count = $request->input('doorprize_count');
         try {
-            //code...
-
-            //! you should make table view of prize and department relationship for counting how much prize per dept can get
-
             // cek jumlah hadiah yang sudah di roll
             $prize = Prize::where('prize_id', $prize_id)->first();
             $sum_prize = Prize_dept_counter::where('id_prize', $prize_id)->sum('counter');
+            $prize_dept_counter = Prize_dept_counter::select('id_department', 'counter', 'max_count')
+                ->where('id_prize', $prize_id)
+                ->whereRaw('counter < max_count')
+                ->get();
 
             if ($sum_prize < $prize->prize_value) {
                 //get department yang counternya kurang dari max_count prize secara acak berdasar jumlah yang diundi
-                $dept_acak = Prize_dept_counter::select('id_department')
-                    ->where('id_prize', $prize_id)
-                    ->whereRaw('counter < max_count')
-                    ->inRandomOrder()
-                    ->limit($doorprize_count > $prize->prize_value ? $prize->prize_value : $doorprize_count)
-                    ->get();
+                $dept_acak = array();
+                for ($i = 0; $i < $doorprize_count; $i++) {
+                    $da = null;
+                    if (($prize->prize_value - $sum_prize) >= $doorprize_count) {
+                        while (empty($da)) {
+                            # code...
+                            $da = $prize_dept_counter->map(function ($item) {
+                                if (!empty($item) && $item->counter < $item->max_count) return $item;
+                            })->random();
+                        }
+                    } else {
+                        $da = $prize_dept_counter->map(function ($item) {
+                            if (!empty($item) && $item->counter < $item->max_count) return $item;
+                        })->random();
+                    }
+
+                    if (empty($da)) continue;
+
+                    $dept_acak[] = $da;
+
+                    $prize_dept_counter->transform(function ($pdc) use ($da) {
+                        if (
+                            !empty($pdc) &&
+                            $pdc->id_department ===
+                            $da->id_department
+                        ) $pdc->counter = $pdc->counter + 1;
+
+                        return $pdc;
+                    });
+                }
 
                 $list_pemenang = array();
 
