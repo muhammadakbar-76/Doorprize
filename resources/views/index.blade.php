@@ -7,14 +7,14 @@
         }
     </style>
     <section
-        style="background-image: url({{ asset('img/background.jpg') }}); background-size: cover; background-position: center; background-repeat: no-repeat;">
+        style="background-image: url({{ asset('img/bg.jpeg') }}); background-size: cover; background-position: center; background-repeat: no-repeat;">
         <div class="container">
-            <div class="row d-flex" style="height: 100vh">
+            <div class="row" style="height: 100vh; display: flex; align-items: flex-start; justify-content: center;">
                 {{-- <div class="col-sm-7 d-flex" style="height: 100vh;">
                     <img src="{{ asset('img/logo.png') }}" alt="" style="height: 400px; width: 400px; margin:auto">
                 </div> --}}
-                <div class="col-sm-5 m-auto">
-                    <div class="card">
+                <div class="col-sm-5" style="width: 100%;">
+                    <div class="card mt-5" style="width: 50%; text-align: center; margin: auto;">
                         <div class="card-header text-center">
                             Win Prizes🎉🎊
                         </div>
@@ -39,6 +39,8 @@
                                             {{ app('request')->input('doorprize_count') == 1 ? 'selected' : '' }}>1</option>
                                         <option value="2"
                                             {{ app('request')->input('doorprize_count') == 2 ? 'selected' : '' }}>2</option>
+                                        <option value="3"
+                                            {{ app('request')->input('doorprize_count') == 3 ? 'selected' : '' }}>3</option>
                                         <option value="4"
                                             {{ app('request')->input('doorprize_count') == 4 ? 'selected' : '' }}>4</option>
                                     </select>

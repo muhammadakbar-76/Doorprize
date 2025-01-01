@@ -22,6 +22,7 @@ class CreateTableEmployees extends Migration
             $table->string('employee_nik');
             $table->foreignId('id_department')->references('department_id')->on('departments');
             $table->float('lama_kerja');
+            $table->string('status_site');
             $table->string('real_dept')->nullable();
         });
     }

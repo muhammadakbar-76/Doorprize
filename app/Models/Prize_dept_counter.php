@@ -13,7 +13,8 @@ class Prize_dept_counter extends Model
 
     protected $fillable = [
         'id_prize',
-        'id_department'
+        'id_department',
+        'status_site'
     ];
 
     public function departments()

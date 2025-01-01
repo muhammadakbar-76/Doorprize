@@ -22,6 +22,7 @@ class CreateTableWinners extends Migration
             $table->string('employee_nik');
             $table->string('department_name');
             $table->float('lama_kerja');
+            $table->string('status_site');
             $table->string('prize_name');
         });
     }

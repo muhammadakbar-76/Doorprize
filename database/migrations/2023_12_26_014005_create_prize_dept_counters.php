@@ -20,6 +20,7 @@ class CreatePrizeDeptCounters extends Migration
             $table->foreignId('id_department')->references('department_id')->on('departments');
             $table->smallInteger('counter')->default(0);
             $table->smallInteger('max_count')->default(0);
+            $table->string('status_site');
         });
     }
 

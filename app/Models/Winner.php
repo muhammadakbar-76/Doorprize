@@ -17,6 +17,7 @@ class Winner extends Model
         'employee_nik',
         'department_name',
         'lama_kerja',
+        'status_site',
         'prize_name'
     ];
 }

@@ -25,14 +25,14 @@
         }
     </style>
     <section
-        style="background-image: url({{ asset('img/background.jpg') }}); background-size: cover; background-position: center; background-repeat: no-repeat;">
+        style="background-image: url({{ asset('img/background_undi.jpeg') }}); background-size: cover; background-position: center; background-repeat: no-repeat;">
         <div class="container">
             <div class="d-flex" style="height: 100vh">
                 <div class="m-auto">
-                    <div class="row" style="margin-top: 10vh">
+                    <div class="row">
                         <div class="col-sm-12 text-center">
-                            <img src="{{ asset('img/congrats.png') }}" alt="" class="img-fluid zoom-in-out-box"
-                                style="height: 100px">
+                            <img src="{{ asset('img/congrats_old.png') }}" alt="" class="img-fluid zoom-in-out-box"
+                                style="height: 200px">
                         </div>
                     </div>
                     <div class="row mt-2 px-5 kejutan" style="visibility: hidden;">
@@ -72,7 +72,7 @@
                             </div>
                         </div>
                         <div class="d-inline p-0 text-center"
-                            style="background-image: url({{ asset('img/recta.png') }}); height: 50vh; width: 35vw; margin-left: -17px; background-size: cover; background-position: center; background-repeat: no-repeat;">
+                            style="background-image: url({{ asset('img/recta_green.jpeg') }}); height: 50vh; width: 35vw; margin-left: -17px; background-size: cover; background-position: center; background-repeat: no-repeat;">
                             <h4 class="text-center mt-4"
                                 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: white">
                                 Mendapatkan

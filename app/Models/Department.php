@@ -20,4 +20,9 @@ class Department extends Model
     {
         return $this->hasMany(Employee::class);
     }
+
+    public function prize_dept_counters()
+    {
+        return $this->hasMany(Prize_dept_counter::class);
+    }
 }
